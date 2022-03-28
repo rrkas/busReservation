@@ -3,33 +3,21 @@
 #include <conio.h>
 #include <string.h>
 #include <time.h>
-typedef struct BinarySearchTree BST;
-// if bst is empty then we have to handle the error
-struct BinarySearchTree
-{
-  int PassnNo; // busNo0SeatNo.
-  char name[10];
-  struct BinarySearchTree *left;
-  struct BinarySearchTree *right;
-};
+#include <ctype.h>
+#include "bst.c"
+#include "login.c"
+
 BST *root = NULL;
-int cost(BST *r);              // calculates costs
-void status();                 // shows bus and seats status
-void busLists();               // shows buslist and do booking seat and return customer ID
-void DisplaySeat(int bus[33]); // Display the seats of buses
-void cancel(int x);            //cancel the booking 
+int cost(BST *r);                        // calculates costs
+void status();                           // shows bus and seats status
+void busLists();                         // shows buslist and do booking seat and return customer ID
+void DisplaySeat(int bus[33]);           // Display the seats of buses
+void cancel(int x);                      // cancel the booking
 BST *reservationInfo(BST *, int, int *); // Display Reservation Info
-BST *insert(BST **r, int custID); // inserting a node 
+BST *insert(BST **r, int custID);        // inserting a node
 
 int busSeat[32][9] = {0};
-void redColor() /// Print the message in redcolor
-{
-  printf("\033[1;31m");
-}
-void resetColor() /// reset the old color of console
-{
-  printf("\033[0m");
-}
+
 BST *reservationInfo(BST *r, int s, int *custIDmatched) // find function
 {
   if (r == NULL)
@@ -119,40 +107,6 @@ void DisplaySeat(int bus[33])
     printf("         ");
     if (i % 4 == 0)
       printf("\n");
-  }
-}
-void login()
-{
-  char userName[20] = "user";
-  char passWord[10] = "team18";
-  char matchPass[10];
-  char matchUser[10];
-  int value;
-  redColor();
-  printf("\n\n=========================================================================================\n");
-  printf("\n\t\t\tWELCOME TO ONLINE BUS RESERVATION");
-  printf("\n\n=========================================================================================\n\n");
-  resetColor();
-login:
-{
-  printf("\n\nUserName: ");
-  gets(matchUser);
-
-  printf("\nPassWord: ");
-  gets(matchPass);
-}
-
-  value = strcmp(passWord, matchPass); /// string compare is function defined in headerfile i.e string.h
-  if (value != 0)
-  {
-    redColor();
-    printf("\nINVALID DETAILS TRY AGAIN...\n");
-    resetColor();
-    goto login;
-  }
-  else
-  {
-    printf("\nLOGED IN SUCCESFULLY...\n");
   }
 }
 int cost(BST *r)
@@ -274,6 +228,7 @@ main:
 {
   do
   {
+    system("cls");
     printf("\n\n====================================================================\n\n");
     printf("\t\t\t\033[1;31mBUS RESERVATION\033[0m\t\t");
     printf("\n\n=====================================================================\n");
@@ -407,7 +362,7 @@ main:
       redColor();
       printf("\n\n   INVALID INPUT CHOOSE CORRECT OPTION\n");
       resetColor();
-      break; 
+      break;
     }
   } while (num != 6);
   printf("\n\n=====================================================================\n\n");
