@@ -1,10 +1,10 @@
 #include<stdio.h>
 
-void redColor() /// Print the message in redcolor
+void colorRed() /// Print the message in colorRed
 {
   printf("\x1B[31m");
 }
-void resetColor() /// reset the old color of console
+void colorReset() /// reset the old color of console
 {
   printf("\x1B[0m");
 }

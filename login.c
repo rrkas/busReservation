@@ -1,37 +1,37 @@
 #include<stdio.h>
 #include "colors.c"
 
-void login()
+void loginCred()
 {
-  char userName[20] = "demo";
-  char passWord[10] = "password";
-  char matchPass[10];
-  char matchUser[10];
+  char username[20] = "demo";
+  char password[10] = "password";
+  char passMatch[10];
+  char userMatch[10];
   int value;
-  redColor();
+  colorRed();
   printf("\n\n=========================================================================================\n");
   printf("\n\t\t\tWELCOME TO ONLINE BUS RESERVATION");
   printf("\n\n=========================================================================================\n\n");
-  resetColor();
-login:
+  colorReset();
+loginCred:
 {
-  printf("\n\nUserName: ");
-  gets(matchUser);
+  printf("\n\nusername: ");
+  gets(userMatch);
 
-  printf("\nPassWord: ");
-  gets(matchPass);
+  printf("\npassword: ");
+  gets(passMatch);
 }
 
-  value = strcmp(passWord, matchPass); /// string compare is function defined in headerfile i.e string.h
+  value = strcmp(password, passMatch); /// string compare is function defined in headerfile i.e string.h
   if (value != 0)
   {
-    redColor();
-    printf("\nINVALID DETAILS TRY AGAIN...\n");
-    resetColor();
-    goto login;
+    colorRed();
+    printf("\nINVALID USERNAME/ PASSWORD TRY AGAIN...\n");
+    colorReset();
+    goto loginCred;
   }
   else
   {
-    printf("\nLOGED IN SUCCESFULLY...\n");
+    printf("\nLOGGING IN SUCCESSFULLY...\n");
   }
 }

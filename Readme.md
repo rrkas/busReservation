@@ -2,11 +2,11 @@
 
 ## Building & running
 > `gcc -g main.c -o run.exe`  
-> `run.exe`
+> `run.exe`  
 
 ## HERE ARE FEW SNAPSHOTS OF OUTPUTS
 
-![LOGIN](images/login.jpg)
+![loginCred](images/loginCred.jpg)
 <br/>
 <br/>
 ![BUSLISTS](images/buslists.jpg)
@@ -21,4 +21,3 @@
 ![image info](images/custID.jpg)
 <br/>
 <br/>
-`Happy code <3`
